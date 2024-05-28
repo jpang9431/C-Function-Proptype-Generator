@@ -1,4 +1,4 @@
-f = open("a.txt", "r")
+f = open(input("Enter the file path: "), "r")
 
 keywordList = ["char", "int", "float", "void", "short", "long", "signed", "unsigned"]
 
