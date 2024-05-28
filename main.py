@@ -18,6 +18,10 @@ def createProptype(lineList):
     index += 1
   proptype+=" "
   wasSpecial = "struct" in lineList[index-1]
+  if ")" in proptype:
+    proptype = proptype[:-1]
+    proptype+=";"
+    return proptype
   while index < len(lineList):
     if "[" in lineList[index]:
       proptype = proptype[:-1]
@@ -37,15 +41,16 @@ def createProptype(lineList):
     elif ")" in lineList[index]:
       if proptype[-1] == " ":
         proptype = proptype[:-1]
-      proptype += ");"
+        proptype = proptype + ")"
       break;
     proptype += " "
     index += 1
-  print(proptype[1:])
+  proptype += ";"
+  return proptype
 
 
 for line in f:
   lineList = line.split(" ")
   if (lineList[-1] == "{\n"
       and (valInList(lineList[0], keywordList) or lineList[0] == "struct")):
-    createProptype(lineList)
+    print(createProptype(lineList)[1:])
