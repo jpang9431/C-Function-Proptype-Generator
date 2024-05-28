@@ -37,7 +37,8 @@ def createProptype(lineList):
     elif ")" in lineList[index]:
       if proptype[-1] == " ":
         proptype = proptype[:-1]
-      proptype += ")"
+      proptype += ");"
+      break;
     proptype += " "
     index += 1
   print(proptype[1:])
