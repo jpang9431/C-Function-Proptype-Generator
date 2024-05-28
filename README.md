@@ -1,0 +1,1 @@
+This is a random thing I built while learning C. It works on the assumption that the { character is on the same line as a function decleration. It also assumes that the function is written in proper function notation.
